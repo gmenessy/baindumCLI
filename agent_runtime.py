@@ -7,11 +7,7 @@ from retriever import BrainRetriever
 from policy_engine import PolicyEngine
 from tool_router import ToolRouter
 from decision_memory import DecisionMemoryService, DecisionEpisode, OutcomeFeedback
-
-class MockDreamEngine:
-    """Mock for the asynchronous learning service."""
-    def run_daydream(self):
-        print("☁️ [Daydream] Extracted fragments and promoted wikis.")
+from dream_engine import DreamEngine
 
 class AgentRuntime:
     """The central Execution Kernel of BrainDump."""
@@ -21,7 +17,7 @@ class AgentRuntime:
         retriever: BrainRetriever,
         policy_engine: PolicyEngine,
         decision_memory: DecisionMemoryService,
-        dream_engine: MockDreamEngine,
+        dream_engine: DreamEngine,
         vfs: BrainVFS,
         tool_router: ToolRouter,
     ):

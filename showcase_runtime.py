@@ -4,7 +4,8 @@ from retriever import BrainRetriever
 from policy_engine import PolicyEngine
 from tool_router import ToolRouter
 from decision_memory import DecisionMemoryService
-from agent_runtime import AgentRuntime, MockDreamEngine
+from dream_engine import DreamEngine
+from agent_runtime import AgentRuntime
 
 async def run_vertical_slice():
     print("🚀 Initializing BrainDump Core Services...\n")
@@ -24,7 +25,7 @@ async def run_vertical_slice():
     retriever = BrainRetriever(vfs)
     policy_engine = PolicyEngine(vfs, retriever)
     decision_memory = DecisionMemoryService()
-    dream_engine = MockDreamEngine()
+    dream_engine = DreamEngine(vfs, retriever)
     tool_router = ToolRouter()
 
     # 3. Create Runtime Kernel

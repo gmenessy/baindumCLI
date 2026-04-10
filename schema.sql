@@ -38,3 +38,10 @@ CREATE TABLE IF NOT EXISTS decisions (
     outcome_score REAL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS vfs_snapshots (
+    snapshot_id TEXT PRIMARY KEY,
+    namespace TEXT NOT NULL,
+    snapshot_data TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
